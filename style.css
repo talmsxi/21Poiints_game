@@ -281,15 +281,15 @@ input[type="reset"]:hover {
 }
 
 .red-light {
-    animation: red 9s infinite;
+    animation: red 2s infinite;
 }
 
 .yellow-light {
-    animation: yellow 9s infinite;
+    animation: yellow 2s infinite;
 }
 
 .green-light {
-    animation: green 9s infinite;
+    animation: green 2s infinite;
 }
 
 @keyframes red {
