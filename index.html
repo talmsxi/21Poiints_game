@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="uk">
+
+<head>
+    <meta charset="utf-8">
+    <title>Лабораторні роботи №10-14</title>
+    <link href="https://fonts.googleapis.com/css?family=Literata&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="left-block">
+
+        <div class="form-block">
+            <h2>Форма реєстрації</h2>
+
+            <form name="registration" action="#" method="post">
+
+                <fieldset class="form-section-one">
+                    <label for="surname">Прізвище</label>
+                    <input type="text" id="surname" name="surname" maxlength="50" placeholder="Введіть прізвище">
+
+                    <label for="firstname">Ім'я</label>
+                    <input type="text" id="firstname" name="firstname" maxlength="50" placeholder="Введіть ім'я">
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="example@gmail.com">
+
+                    <label for="password">Пароль</label>
+                    <input type="password" id="password" name="password" maxlength="20">
+                </fieldset>
+
+                <fieldset class="form-section-two">
+                    <label for="phone">Телефон</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+380XXXXXXXXX">
+
+                    <label for="birthdate">Дата народження</label>
+                    <input type="date" id="birthdate" name="birthdate">
+
+                    <label for="gender">Стать</label>
+                    <select name="gender" id="gender">
+                        <option value="male">Чоловіча</option>
+                        <option value="female" selected>Жіноча</option>
+                    </select>
+                </fieldset>
+
+                <fieldset class="form-section-three">
+                    <label for="faculty">Факультет</label>
+                    <select name="faculty" id="faculty">
+                        <option value="fkn" selected>Факультет комп'ютерних наук</option>
+                        <option value="fpe">Факультет політичних наук</option>
+                        <option value="fek">Факультет економіки</option>
+                    </select>
+
+                    <label>Інтереси</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" checked> Web-розробка</label>
+                        <label><input type="checkbox"> Дизайн</label>
+                        <label><input type="checkbox"> Штучний інтелект</label>
+                    </div>
+
+                    <label for="about">Про себе:</label>
+                    <textarea name="about" id="about" cols="50" rows="3" placeholder="Розкажіть про себе..."></textarea>
+                </fieldset>
+
+                <label for="avatar">Завантажити фото:</label>
+                <input type="file" name="avatar" id="avatar">
+                <br><br>
+
+                <input type="submit" name="submit" value="Зареєструватися">
+                <input type="reset" name="reset" value="Очистити">
+            </form>
+
+            <img src="https://wildfauna.ru/wp-content/uploads/2019/02/kapibara-3.jpg"
+                alt="Капібара крупним планом на природі" class="main-photo">
+        </div>
+
+        <div class="video-block">
+            <p>Відео про капібар <cite>Capybara Life</cite></p>
+            <video src="media/clip.mp4" controls></video>
+
+            <p>Відео з source:</p>
+            <video controls>
+                <source src="media/video.mp4" type="video/mp4">
+                <source src="media/video.webm" type="video/webm">
+                Ваш браузер не підтримує елемент video.
+            </video>
+
+            <p>Відео з preload та loop:</p>
+            <video src="media/nature.mp4" controls preload="metadata" loop></video>
+        </div>
+
+    </div>
+
+    <div class="right-block">
+
+        <p class="section-title">Студент ЧНУ</p>
+        <div class="hover-photo">
+            <img src="https://thumbs.dreamstime.com/b/none-340625988.jpg" alt="Капібара в костюмі">
+        </div>
+
+        <p class="section-title">Студенти інших університетів</p>
+        <div class="image-gallery">
+            <div class="image-card rotate-photo">
+                <img src="https://i.redd.it/mc0yjp03d5je1.jpeg" alt="Капібара стоїть на землі">
+            </div>
+            <div class="image-card scale-photo">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtuG53CEQHyahnVgQKAQYNbf473yswv4k2oA&s"
+                    alt="Капібара поруч з людиною">
+            </div>
+            <div class="image-card skew-photo">
+                <img src="https://media.istockphoto.com/id/147668890/ru/%D1%84%D0%BE%D1%82%D0%BE/%D0%B3%D1%80%D1%8F%D0%B7%D0%BD%D1%8B%D0%B9-%D0%BA%D0%B0%D0%BF%D0%B8%D0%B1%D0%B0%D1%80%D0%B0.jpg?s=612x612&w=0&k=20&c=-4KNCEzwMV13eZ0xUTP4_oMxOjcCwVqy8u7UOsneXeI="
+                    alt="Капібара у воді">
+            </div>
+            <div class="image-card move-photo">
+                <img src="https://preview.redd.it/i-mentioned-to-a-zookeeper-that-capybaras-are-my-favourite-v0-5acse8gj4rx91.jpg?width=640&crop=smart&auto=webp&s=dbc8ae384ff979a83a21a494e6c13ff934abb558"
+                    alt="Капібара поруч з дівчиною">
+            </div>
+        </div>
+
+        <div class="audio-block">
+            <p>Моя улюблена пісня <cite>Eminem - Believe</cite></p>
+            <audio src="media/song.mp3" controls></audio>
+
+            <p>Аудіо з source:</p>
+            <audio controls>
+                <source src="media/song.mp3" type="audio/mp3">
+                <source src="media/song.ogg" type="audio/ogg">
+                Ваш браузер не підтримує елемент audio.
+            </audio>
+
+            <p>Фонова музика (autoplay + loop):</p>
+            <audio src="media/background.mp3" controls autoplay loop></audio>
+        </div>
+
+        <div class="traffic-light">
+            <div class="light red-light">К</div>
+            <div class="light yellow-light">В</div>
+            <div class="light green-light">О</div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
