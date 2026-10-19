@@ -3,276 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Лабораторна робота 7</title>
+    <title>Лабораторна робота 8</title>
     <style>
         body {
-            background-color: #0d0d18;
+            background-color: #10101c;
             font-family: Arial, sans-serif;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
             padding: 30px;
         }
-        input {
-            width: 320px;
-            height: 50px;
-            padding: 0 20px;
-            box-sizing: border-box;
-            font-size: 15px;
-            font-family: Arial, sans-serif;
-            background-color: #26263a;
-            border: 1px solid #44445e;
-            border-radius: 25px;
+        .window {
+            background-color: #1d1d2e;
+            border: 1px solid #343450;
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
             color: #ffffff;
-            outline: none;
         }
-        input::placeholder {
-            color: #8888a0;
+        h1 {
+            margin: 0 0 30px;
+            font-size: 26px;
+        }
+        .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .card {
+            width: 190px;
+            padding: 20px 15px;
+            background-color: #272740;
+            border: 2px solid #343450;
+            border-radius: 18px;
+        }
+        .card.winner {
+            border-color: #ffd54a;
+        }
+        .crown {
+            height: 34px;
+            font-size: 28px;
+        }
+        .avatar {
+            width: 100px;
+            height: 100px;
+            background-color: #ffffff;
+            border-radius: 50%;
+        }
+        .name {
+            margin: 12px 0;
+            font-size: 18px;
+        }
+        .score {
+            height: 38px;
+            line-height: 38px;
+            font-size: 20px;
+            background-color: #3b82f6;
+            border-radius: 10px;
+            color: #ffffff;
+        }
+        .circle {
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            margin: 18px auto 0;
+            font-size: 40px;
+            background-color: #ffd54a;
+            border-radius: 50%;
+            color: #2a2a1a;
         }
         .btn {
-            width: 320px;
-            height: 50px;
-            line-height: 50px;
-            margin: 12px auto 0;
-            text-align: center;
-            font-size: 15px;
-            font-family: Arial, sans-serif;
-            background-color: #3f55c8;
-            border-radius: 25px;
+            width: 150px;
+            height: 64px;
+            line-height: 64px;
+            margin: 0 28px;
+            font-size: 19px;
+            background: linear-gradient(#34d96f, #15a34a);
+            border-radius: 14px;
             color: #ffffff;
             cursor: pointer;
         }
         .btn:hover {
-            background-color: #5068e0;
+            background: linear-gradient(#4ae884, #18b854);
         }
-        .error {
-            height: 20px;
-            margin: 12px 0 0;
-            font-size: 14px;
-            color: #ff7a9c;
+        .result {
+            height: 26px;
+            margin: 28px 0 0;
+            font-size: 18px;
+            color: #ffd54a;
         }
-        .ball {
-            position: relative;
-            width: 280px;
-            height: 280px;
-            margin: 30px auto 0;
-            border-radius: 50%;
-            background: radial-gradient(circle at 35% 30%, #4a4a58, #000000 70%);
-            perspective: 800px;
-            cursor: grab;
-        }
-        .light {
-            position: absolute;
-            top: 40px;
-            left: 55px;
-            width: 55px;
-            height: 35px;
-            border-radius: 50%;
-            background-color: #ffffff;
-            opacity: 0.25;
-        }
-        .rotator {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            transform-style: preserve-3d;
-        }
-        .face {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 130px;
-            height: 130px;
-            margin: -65px 0 0 -65px;
-            border-radius: 50%;
-            backface-visibility: hidden;
-        }
-        .eight {
-            background-color: #ffffff;
-            color: #000000;
-            font-size: 70px;
-            line-height: 130px;
-            text-align: center;
-            transform: translateZ(125px);
-        }
-        .window {
-            background-color: #0a0f2a;
-            overflow: hidden;
-            transform: rotateY(180deg) translateZ(125px);
-        }
-        .triangle {
-            position: absolute;
-            top: 25px;
-            left: 20px;
-            width: 0;
-            height: 0;
-            border-left: 45px solid transparent;
-            border-right: 45px solid transparent;
-            border-bottom: 80px solid #2a46b0;
-        }
-        .answer {
-            position: absolute;
-            top: 65px;
-            left: 25px;
-            width: 80px;
-            font-size: 11px;
-            text-align: center;
-            color: #ffffff;
-        }
-        .hint {
-            margin: 25px 0 0;
-            font-size: 13px;
-            color: #7a7a90;
-        }
-        @media (max-width: 400px) {
-            input, .btn {
-                width: 100%;
-            }
-            .ball {
-                width: 220px;
-                height: 220px;
-            }
-            .eight {
-                transform: translateZ(95px);
-            }
+        @media (max-width: 640px) {
             .window {
-                transform: rotateY(180deg) translateZ(95px);
+                padding: 25px;
+            }
+            .row {
+                display: block;
+            }
+            .card {
+                width: auto;
+            }
+            .btn {
+                margin: 20px auto;
+            }
+            .circle {
+                width: 80px;
+                height: 80px;
+                line-height: 80px;
+                font-size: 32px;
             }
         }
     </style>
     <script>
-        const answers = ['ЦЕ ТОЧНО', 'БЕЗ СУМНІВУ', 'ТАК, ВИЗНАЧЕНО',
-                         'МОЖЕШ ПОКЛАСТИСЬ', 'СКОРІШЕ ЗА ВСЕ', 'ПЕРСПЕКТИВИ ДОБРІ',
-                         'ВІДПОВІДЬ ТУМАННА', 'ЗАПИТАЙ ПІЗНІШЕ', 'ЗАРАЗ НЕ ВГАДАТИ',
-                         'НЕ РОЗРАХОВУЙ НА ЦЕ', 'МОЯ ВІДПОВІДЬ - НІ', 'ДУЖЕ СУМНІВНО'];
+        const win = 3;
 
-        let isDown = false;
-        let startX = 0;
-        let angle = 0;
+        let userScore = 0;
+        let compScore = 0;
+        let gameOver = false;
 
-        window.onload = createPage;
+        window.onload = start;
 
-        function createPage() {
-            let question = document.createElement('input');
-            question.setAttribute('type', 'text');
-            question.setAttribute('id', 'question');
-            question.setAttribute('placeholder', 'Постав своє запитання');
-            document.body.appendChild(question);
+        function start() {
+            let name = prompt('Як вас звати?');
 
-            let btn = document.createElement('div');
-            btn.classList.add('btn');
-            btn.innerHTML = 'Запитати';
-            btn.onclick = ask;
-            document.body.appendChild(btn);
-
-            let error = document.createElement('p');
-            error.classList.add('error');
-            error.setAttribute('id', 'error');
-            document.body.appendChild(error);
-
-            let ball = document.createElement('div');
-            ball.classList.add('ball');
-
-            let rotator = document.createElement('div');
-            rotator.classList.add('rotator');
-            rotator.setAttribute('id', 'rotator');
-
-            let eight = document.createElement('div');
-            eight.classList.add('face');
-            eight.classList.add('eight');
-            eight.innerHTML = '8';
-            rotator.appendChild(eight);
-
-            let box = document.createElement('div');
-            box.classList.add('face');
-            box.classList.add('window');
-
-            let triangle = document.createElement('div');
-            triangle.classList.add('triangle');
-            box.appendChild(triangle);
-
-            let answer = document.createElement('div');
-            answer.classList.add('answer');
-            answer.setAttribute('id', 'answer');
-            box.appendChild(answer);
-
-            rotator.appendChild(box);
-            ball.appendChild(rotator);
-
-            let light = document.createElement('div');
-            light.classList.add('light');
-            ball.appendChild(light);
-
-            ball.onmousedown = startDrag;
-            ball.onwheel = wheel;
-            document.onmousemove = drag;
-            document.onmouseup = stopDrag;
-
-            document.body.appendChild(ball);
-
-            let hint = document.createElement('p');
-            hint.classList.add('hint');
-            hint.innerHTML = 'Тягни кулю мишкою або крути колесиком';
-            document.body.appendChild(hint);
-        }
-
-        function startDrag(e) {
-            isDown = true;
-            startX = e.clientX;
-            document.getElementById('rotator').style.transition = 'none';
-        }
-
-        function drag(e) {
-            if (isDown) {
-                angle = angle + (e.clientX - startX);
-                startX = e.clientX;
-                showBall();
+            while (name != null && name.trim() == '') {
+                name = prompt('Ім\'я не може бути порожнім. Як вас звати?');
             }
-        }
 
-        function stopDrag() {
-            isDown = false;
-        }
-
-        function wheel(e) {
-            document.getElementById('rotator').style.transition = 'none';
-            angle = angle + e.deltaY / 4;
-            showBall();
-        }
-
-        function showBall() {
-            document.getElementById('rotator').style.transform = 'rotateY(' + angle + 'deg)';
-        }
-
-        function ask() {
-            let text = document.getElementById('question').value;
-
-            if (text.trim() == '') {
-                document.getElementById('error').innerHTML = 'Спочатку введіть запитання!';
+            if (name == null) {
+                name = 'Гравець';
             }
-            else if (text.length < 5) {
-                document.getElementById('error').innerHTML = 'Запитання занадто коротке!';
+
+            document.getElementById('userName').innerHTML = name;
+
+            newAvatars();
+        }
+
+        function newAvatars() {
+            let userSeed = Math.floor(Math.random() * 1000000);
+            let compSeed = Math.floor(Math.random() * 1000000);
+
+            document.getElementById('userImg').src =
+                'https://api.dicebear.com/7.x/avataaars/svg?seed=' + userSeed;
+
+            document.getElementById('compImg').src =
+                'https://api.dicebear.com/7.x/bottts/svg?seed=' + compSeed;
+        }
+
+        function showCrown() {
+            if (userScore > compScore) {
+                document.getElementById('userCrown').innerHTML = '&#128081;';
+                document.getElementById('compCrown').innerHTML = '';
+            }
+            else if (compScore > userScore) {
+                document.getElementById('userCrown').innerHTML = '';
+                document.getElementById('compCrown').innerHTML = '&#128081;';
             }
             else {
-                document.getElementById('error').innerHTML = '';
-
-                let i = Math.floor(Math.random() * answers.length);
-                document.getElementById('answer').innerHTML = answers[i];
-
-                angle = angle + 720;
-                angle = angle - (angle % 360) + 180;
-
-                document.getElementById('rotator').style.transition = 'transform 1.5s';
-                showBall();
+                document.getElementById('userCrown').innerHTML = '';
+                document.getElementById('compCrown').innerHTML = '';
             }
+        }
+
+        function generate() {
+            if (gameOver) {
+                newGame();
+            }
+            else {
+                let userNum = Math.floor(Math.random() * 10) + 1;
+                let compNum = Math.floor(Math.random() * 10) + 1;
+
+                document.getElementById('userNum').innerHTML = userNum;
+                document.getElementById('compNum').innerHTML = compNum;
+
+                newAvatars();
+
+                document.getElementById('userCard').classList.remove('winner');
+                document.getElementById('compCard').classList.remove('winner');
+
+                if (userNum > compNum) {
+                    userScore = userScore + 1;
+                    document.getElementById('userCard').classList.add('winner');
+                    document.getElementById('result').innerHTML = 'Раунд за вами';
+                }
+                else if (compNum > userNum) {
+                    compScore = compScore + 1;
+                    document.getElementById('compCard').classList.add('winner');
+                    document.getElementById('result').innerHTML = 'Раунд за комп\'ютером';
+                }
+                else {
+                    document.getElementById('result').innerHTML = 'Нічия';
+                }
+
+                document.getElementById('userScore').innerHTML = userScore;
+                document.getElementById('compScore').innerHTML = compScore;
+
+                showCrown();
+
+                if (userScore == win) {
+                    document.getElementById('result').innerHTML = 'Ви перемогли!';
+                    gameOver = true;
+                    document.getElementById('btn').innerHTML = 'Нова гра';
+                }
+                else if (compScore == win) {
+                    document.getElementById('result').innerHTML = 'Переміг комп\'ютер';
+                    gameOver = true;
+                    document.getElementById('btn').innerHTML = 'Нова гра';
+                }
+            }
+        }
+
+        function newGame() {
+            userScore = 0;
+            compScore = 0;
+            gameOver = false;
+
+            document.getElementById('userScore').innerHTML = '0';
+            document.getElementById('compScore').innerHTML = '0';
+            document.getElementById('userNum').innerHTML = '-';
+            document.getElementById('compNum').innerHTML = '-';
+            document.getElementById('result').innerHTML = '';
+            document.getElementById('btn').innerHTML = 'Згенерувати';
+            document.getElementById('userCard').classList.remove('winner');
+            document.getElementById('compCard').classList.remove('winner');
+
+            showCrown();
+            newAvatars();
         }
     </script>
 </head>
 <body>
+
+    <div class="window">
+        <h1>Більше число</h1>
+
+        <div class="row">
+
+            <div class="card" id="userCard">
+                <div class="crown" id="userCrown"></div>
+                <img class="avatar" id="userImg" src="https://api.dicebear.com/7.x/avataaars/svg?seed=1" alt="Гравець">
+                <p class="name" id="userName">User</p>
+                <div class="score" id="userScore">0</div>
+                <div class="circle" id="userNum">-</div>
+            </div>
+
+            <div class="btn" id="btn" onclick="generate();">Згенерувати</div>
+
+            <div class="card" id="compCard">
+                <div class="crown" id="compCrown"></div>
+                <img class="avatar" id="compImg" src="https://api.dicebear.com/7.x/bottts/svg?seed=2" alt="Комп'ютер">
+                <p class="name">Computer</p>
+                <div class="score" id="compScore">0</div>
+                <div class="circle" id="compNum">-</div>
+            </div>
+
+        </div>
+
+        <p class="result" id="result"></p>
+    </div>
+
 </body>
 </html>
